@@ -1,0 +1,23 @@
+# Unique name
+name: "bombs"
+
+# Module version
+version: 1.0
+
+# Brief description about the module
+description: "Adds bombs to the game"
+
+# Module class path
+main: "com.honeybeedev.exclusiveprison.testmodule.BombsModule"
+
+# Which modules does it depend to?
+depend: ["tools"]
+
+# Repositories for the dependencies
+# Default repositories are included
+repositories:
+  - ""
+
+# Dependencies that this module requires
+dependencies:
+  - "com.ssms:smth:2.0"

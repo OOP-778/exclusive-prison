@@ -1,11 +1,14 @@
 package com.honeybeedev.exclusiveprison.api.command;
 
+import com.honeybeedev.exclusiveprison.api.command.ComponentBuilder.Command;
 import java.util.function.Consumer;
 
+/**
+ * Handles registering of commands
+ */
 public interface CommandRegistry {
     /**
      * Register an command
-     * @param separate if the command should be separate from main cmd
      */
-    void newCommand(boolean separate, Consumer<CommandBuilder> consumer);
+    void newCommand(Consumer<Command> consumer);
 }

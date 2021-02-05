@@ -1,8 +1,6 @@
 package com.honeybeedev.exclusiveprison.api.module;
 
-import com.google.inject.AbstractModule;
 import com.honeybeedev.exclusiveprison.api.ExclusivePrison;
-import com.honeybeedev.exclusiveprison.api.PrisonInjectable;
 import com.honeybeedev.exclusiveprison.api.command.CommandRegistry;
 import com.honeybeedev.exclusiveprison.api.component.ComponentRegistry;
 import com.honeybeedev.exclusiveprison.api.lang.LangRegistry;
@@ -16,23 +14,32 @@ import java.io.File;
 
 @Getter
 @Accessors(fluent = true)
-public abstract class PrisonModule extends AbstractModule implements PrisonInjectable {
+public abstract class PrisonModule {
+    @InjectField
     private PrisonLogger logger;
 
+    @InjectField
     private ExclusivePrison plugin;
 
+    @InjectField
     private File dataDirectory;
 
+    @InjectField
     private LangRegistry language;
 
+    @InjectField
     private CommandRegistry commandRegistry;
 
+    @InjectField
     private ComponentRegistry componentRegistry;
 
+    @InjectField
     private PlaceholderParser placeholderParser;
 
+    @InjectField
     private TaskController taskController;
 
-    public void reload() {
-    }
+    public abstract void reload();
+
+    public abstract void load();
 }

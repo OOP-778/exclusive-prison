@@ -2,6 +2,9 @@ package com.honeybeedev.exclusiveprison.api.command.argument;
 
 import java.util.Optional;
 
+/**
+ * Handles arguments when commands are executed
+ */
 public interface ArgumentMap {
     <T> Optional<T> getOptArg(String key);
 

@@ -1,0 +1,4 @@
+name: ExclusivePrison
+description: The Crappiest Prison Core Plugin
+main: com.honeybeedev.exclusiveprison.ExclusivePrisonPlugin
+version: 1.0

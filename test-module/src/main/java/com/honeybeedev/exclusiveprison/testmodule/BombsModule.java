@@ -1,19 +1,21 @@
 package com.honeybeedev.exclusiveprison.testmodule;
 
-import com.honeybeedev.exclusiveprison.api.command.argument.def.StringArgument;
+import com.honeybeedev.exclusiveprison.api.command.argument.Arguments;
 import com.honeybeedev.exclusiveprison.api.component.Component;
 import com.honeybeedev.exclusiveprison.api.component.ComponentHandler;
 import com.honeybeedev.exclusiveprison.api.key.PrisonKey;
 import com.honeybeedev.exclusiveprison.api.mine.PrisonMine;
-import com.honeybeedev.exclusiveprison.api.module.ModuleProperties;
 import com.honeybeedev.exclusiveprison.api.module.PrisonModule;
 import com.honeybeedev.exclusiveprison.api.util.data.SerializedData;
 
 import java.util.concurrent.TimeUnit;
 
-@ModuleProperties(name = "Bombs", author = "OOP-778", version = "1.0", depends = {"tools"})
 public class BombsModule extends PrisonModule {
-    private BombsConfig config;
+
+    @Override
+    public void reload() {
+
+    }
 
     @Override
     public void load() {
@@ -75,17 +77,14 @@ public class BombsModule extends PrisonModule {
 
     private void loadCommands() {
         commandRegistry()
-                .newCommand(false, bombsCmd -> {
-                    bombsCmd.label("bombs");
-                    bombsCmd.argument(
-                            new StringArgument()
-                                    .id("bomb")
-                                    .required(true)
-                    );
-                    bombsCmd.onExecute((args, sender) -> {
-                        String bomb = args.getArg("bomb", String.class);
-
-                    });
+            .newCommand(bombsCmd -> {
+                bombsCmd.named("bombs");
+                bombsCmd.addArg(Arguments.string(), arg -> arg.optional(true));
+                bombsCmd.addCommand(giveBuilder -> {
+                   giveBuilder.named("give");
+                   giveBuilder.handleExecute((sender, args) -> {
+                   });
                 });
+            });
     }
 }

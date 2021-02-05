@@ -1,0 +1,7 @@
+# Handling of tasks
+tasks controller:
+  # How much threads should task pool get?
+  tasks pool: 2
+
+  # How much threads should database pool get?
+  database pool: 2
